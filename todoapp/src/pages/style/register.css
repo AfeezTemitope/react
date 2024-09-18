@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.image-section img {
+  height: auto;
+  max-width: 70%;
+}
+
+.message {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form-section {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+  max-width: 400px;
+  width: 80%;
+  margin: 0 20px;
+}
