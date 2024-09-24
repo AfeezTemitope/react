@@ -13,6 +13,12 @@ const slideImages = [
     },
     {
         url: require('../assets/oba.jpg'),
+    },
+    {
+        url: require('../assets/deji.jpg'),
+    },
+    {
+        url: require('../assets/badd.jpg'),
     }
 ];
 
