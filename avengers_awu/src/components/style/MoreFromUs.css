@@ -1,0 +1,32 @@
+.more-from-us-container {
+    /*background-color: #a7c7f2; */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 200px;
+    font-family: Arial, sans-serif;
+}
+
+.more-from-us-title {
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.more-from-us-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.more-from-us-list li {
+    margin-bottom: 10px;
+}
+
+.more-from-us-list a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.more-from-us-list a:hover {
+    color: #555;
+}

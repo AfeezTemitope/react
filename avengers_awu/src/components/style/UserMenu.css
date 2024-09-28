@@ -1,0 +1,18 @@
+.user-menu {
+    display: flex;
+    gap: 15px;
+}
+
+.login-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
