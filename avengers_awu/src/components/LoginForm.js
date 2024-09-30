@@ -6,6 +6,10 @@ import '../components/style/LoginForm.css';
 
 const LoginForm = () => {
     const [email, setEmail] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -14,12 +18,17 @@ const LoginForm = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:8080/api/users/confirm?', {
+            const response = await fetch('http://localhost:8080/api/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email }),
+                body: JSON.stringify(
+                    { firstName,
+                            email,
+                            lastName,
+                            userName,
+                            password}),
             });
 
             if (response.ok) {
@@ -48,7 +57,7 @@ const LoginForm = () => {
 
         console.log('Decoded user data:', userData);
 
-        // Navigate to the dashboard with the user data
+
         navigate('/dashboard', { state: userData });
     };
 
@@ -69,6 +78,33 @@ const LoginForm = () => {
 
             <form onSubmit={handleEmailSubmit}>
                 <input
+                    type="text"
+                    className="name-input"
+                    placeholder="Enter your first name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                />
+
+                <input
+                    type="text"
+                    className="name-input"
+                    placeholder="Enter your last name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                />
+
+                <input
+                    type="text"
+                    className="username-input"
+                    placeholder="Enter your username"
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                    required
+                />
+
+                <input
                     type="email"
                     className="email-input"
                     placeholder="nonsense@email.com"
@@ -76,17 +112,33 @@ const LoginForm = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                <button className="email-button" type="submit" disabled={loading}>
-                    {loading ? 'Sending...' : 'Continue with Email'}
-                </button>
-            </form>
 
-            <p className="terms-text">
-                By signing up, signing in, or continuing, I agree to Apartment Therapy
-                Media’s <button className="link-button" onClick={() => handleTermsClick('/terms-of-use')}>Terms of Use</button> and <button className="link-button" onClick={() => handleTermsClick('/privacy-policy')}>Privacy Policy</button>.
-            </p>
-        </div>
-    );
+                <input
+                    type="password"
+                    className="email-input"
+                    placeholder="Confirm your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+
+            {/*    <button type="submit">Submit</button>*/}
+            {/*</form>*/}
+
+            <button className="email-button" type="submit" disabled={loading}>
+                {loading ? 'Sending...' : 'Continue with Email'}
+            </button>
+        </form>
+
+    <p className="terms-text">
+        By signing up, signing in, or continuing, I agree to Apartment Therapy
+        Media’s <button className="link-button" onClick={() => handleTermsClick('/terms-of-use')}>Terms of
+        Use</button> and <button className="link-button" onClick={() => handleTermsClick('/privacy-policy')}>Privacy
+        Policy</button>.
+    </p>
+</div>
+)
+    ;
 };
 
 export default LoginForm;

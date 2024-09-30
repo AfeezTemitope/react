@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import './PostList.css'
+import Head from "../components/Head";
 
 const PostList = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    console.log(posts)
+
+
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -12,8 +18,9 @@ const PostList = () => {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                console.log('Fetched Posts:', data);
-                setPosts(data);
+                // data.forEach((post) => { console.log(post) })
+                console.log('Fetched Posts:', data.userResponse);
+                setPosts(data.userResponse);
             } catch (error) {
                 console.error('Error fetching posts:', error);
             } finally {
@@ -28,14 +35,26 @@ const PostList = () => {
         return <div>Loading posts...</div>;
     }
 
+    // useEffect(() => {
+    //     fetch("http://localhost:8080/allPosts")
+    //         .then(res => res.json())
+    //         .then(data => setPosts(data.post))
+    //         .catch(err => console.log(err));
+    // }, []);
+
     return (
-        <div>
+        <div className="viewBlog">
+            <Head/>
+            <h2>All Blog Post</h2>
             {posts.length > 0 ? (
-                <ul>
+                <ul className="blog-news-list">
                     {posts.map(post => (
-                        <li key={post.id}>
+                        <li key={post.id} className="blog-news-article">
+
+                            <img src={post.imageUrl} className="imageUrl"/>
                             <h3>{post.title}</h3>
                             <p>{post.caption}</p>
+                            <p>{post.createdAt}</p>
                         </li>
                     ))}
                 </ul>
@@ -45,5 +64,6 @@ const PostList = () => {
         </div>
     );
 };
+
 
 export default PostList;

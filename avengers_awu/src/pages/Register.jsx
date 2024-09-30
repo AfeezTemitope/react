@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import {GoogleOAuthProvider} from "@react-oauth/google";
 
 
-const Login = () => {
+const Register = () => {
     return (
         <div className="login">
             <Header/>
@@ -20,4 +20,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register
