@@ -6,7 +6,7 @@ const Logo = () => {
     return (
         <div className="logo-container">
             <img src={Avg} alt="Logo" className="logo" />
-            <h1 className="tagline">The Avengers Says Hi</h1>
+            <h1 className="tagline">TOMI / OBA / ALFA / BADAFEEZ</h1>
         </div>
     );
 };

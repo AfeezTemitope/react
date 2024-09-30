@@ -13,11 +13,7 @@ const Login = () => {
             <Header/>
             <div className="container">
                 <HomeLoveSection/>
-                <GoogleOAuthProvider clientId="694495728180-i9ql7bm7geafutiaas68vmp6v5mgqhae.apps.googleusercontent.com">
-                    <LoginForm />
-                </GoogleOAuthProvider>
-
-
+                  <LoginForm />
             </div>
             <Footer/>
         </div>

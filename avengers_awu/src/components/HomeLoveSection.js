@@ -10,13 +10,13 @@ const HomeLoveSection = () => {
             <div className="home-text-section">
                 <h1>The Avengers you love, The Journey Starts Here.</h1>
                 <p>
-                    Real homes, real inspiration, really good ideas. We've got everything
-                    you need for your life at home. Join for a personalized experience made just for you.
-                    It's free!
+                    java, real python, really good ideas. We've got everything
+                    you need for your soft tech jobs at home. Join for a personalized experience made just for you.
+                    It's free keh, no oo u will pay!
                 </p>
                 <ul className="benefits-list">
                     <li>✔ Access to saving over 480,000 home images!</li>
-                    <li>✔ Curated programs for an organized home!</li>
+                    <li>✔ lemme sha put something here!</li>
                     <li>✔ It’s free!</li>
                 </ul>
             </div>

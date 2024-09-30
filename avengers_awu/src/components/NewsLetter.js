@@ -6,7 +6,7 @@ const Newsletter = () => {
         <div className="newsletter-container">
             <h3 className="newsletter-title">NEWSLETTER</h3>
             <p className="newsletter-text">
-                Enjoy a daily dose of house tours, before & afters, decorating hacks, and more.
+                Enjoy a daily dose of badness tour, before & afters, decorating hacks, and more.
             </p>
             <div className="newsletter-input-container">
                 <input type="email" placeholder="Email" className="newsletter-input" />

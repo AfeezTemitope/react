@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
-import  {jwtDecode} from 'jwt-decode';
+import {jwtDecode} from 'jwt-decode';
 import '../components/style/LoginForm.css';
 
 const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
-    const googleImage = 'https://img1.pnghut.com/21/25/12/fF6cnrfqeA/brand-google-text-logo-product-sans.jpg';
     const navigate = useNavigate();
 
     const handleEmailSubmit = async (e) => {
@@ -15,7 +14,7 @@ const LoginForm = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:8080/api/auth/google', {
+            const response = await fetch('http://localhost:8080/api/users/confirm?', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,26 +39,17 @@ const LoginForm = () => {
         const token = response.credential;
         const userObject = jwtDecode(token);
 
-        fetch('http://localhost:8080/api/users/confirm?', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ token })
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Google login successful!');
-                    navigate('/login');
-                } else {
-                    alert('Google login failed. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error during Google login:', error);
-                alert('An error occurred. Please try again.');
-            });
+
+        const userData = {
+            name: userObject.name,
+            profilePic: userObject.picture,
+            email: userObject.email
+        };
+
+        console.log('Decoded user data:', userData);
+
+        // Navigate to the dashboard with the user data
+        navigate('/dashboard', { state: userData });
     };
 
     const handleTermsClick = (path) => {
